@@ -1,0 +1,141 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QueueLess - Virtual Queue System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">Queue<span>Less</span></div>
+        <nav>
+            <a href="#dashboard">Dashboard</a>
+            <a href="#get-token">Get Token</a>
+            <a href="#queue">Live Queue</a>
+        </nav>
+        <div class="status">● System Online</div>
+    </header>
+
+    <section class="hero" id="dashboard">
+        <div>
+            <p class="tag">SMART QUEUE MANAGEMENT</p>
+            <h1>Skip the Line.<br><span>Save Your Time.</span></h1>
+            <p class="hero-text">
+                Get your digital token and wait comfortably.
+                No physical queues. No unnecessary waiting.
+            </p>
+            <a href="#get-token" class="main-btn">Get Your Token →</a>
+        </div>
+        <div class="hero-card">
+            <p>NOW SERVING</p>
+            <h2 id="heroServing">--</h2>
+            <span>Current Token Number</span>
+        </div>
+    </section>
+
+    <main>
+        <section class="stats">
+            <div class="stat-card">
+                <p>Total Tokens</p>
+                <h2 id="totalTokens">0</h2>
+            </div>
+            <div class="stat-card">
+                <p>Currently Waiting</p>
+                <h2 id="waitingCount">0</h2>
+            </div>
+            <div class="stat-card">
+                <p>Completed</p>
+                <h2 id="completedCount">0</h2>
+            </div>
+            <div class="stat-card">
+                <p>Estimated Wait</p>
+                <h2 id="estimatedWait">0 min</h2>
+            </div>
+        </section>
+
+        <section class="token-section" id="get-token">
+            <div class="section-heading">
+                <p class="tag">DIGITAL TOKEN</p>
+                <h2>Book Your Token</h2>
+                <p>Enter your details to join the queue.</p>
+            </div>
+
+            <form id="tokenForm">
+                <label for="customerName">Your Name</label>
+                <input type="text" id="customerName"
+                       placeholder="Enter your name" required>
+
+                <label for="service">Select Service</label>
+                <select id="service" required>
+                    <option value="">Choose a service</option>
+                    <option value="General">General Enquiry</option>
+                    <option value="Billing">Billing</option>
+                    <option value="Consultation">Consultation</option>
+                    <option value="Document">Document Verification</option>
+                </select>
+
+                <button type="submit" class="main-btn">
+                    Generate My Token
+                </button>
+            </form>
+
+            <div id="tokenResult" class="token-result hidden">
+                <p>Your Token Number</p>
+                <h2 id="newToken">--</h2>
+                <p id="tokenMessage"></p>
+            </div>
+        </section>
+
+        <section class="queue-section" id="queue">
+            <div class="queue-heading">
+                <div>
+                    <p class="tag">REAL-TIME QUEUE</p>
+                    <h2>Queue Management</h2>
+                </div>
+                <button class="reset-btn" id="resetBtn">
+                    Reset Queue
+                </button>
+            </div>
+
+            <div class="serving-card">
+                <div>
+                    <p>NOW SERVING</p>
+                    <h2 id="currentToken">--</h2>
+                    <span id="currentName">No customer currently serving</span>
+                </div>
+                <button id="nextBtn" class="main-btn">
+                    Call Next →
+                </button>
+            </div>
+
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Token</th>
+                            <th>Customer</th>
+                            <th>Service</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="queueTable">
+                    </tbody>
+                </table>
+                <p id="emptyMessage">No customers in the queue yet.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <h3>QueueLess</h3>
+        <p>Smart Queue Management System</p>
+        <p>© 2026 QueueLess. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
